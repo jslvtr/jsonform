@@ -1,0 +1,37 @@
+{
+  "attrs": {
+    "id": "form_test",
+    "class": [
+      "class1",
+      "class2"
+    ],
+    "style": [
+      "display: block;",
+      "background-color: #333333;"
+    ]
+  },
+  "children": [
+    {
+      "tag": "text",
+      "element": {
+        "attrs": {
+          "id": "my_text_field"
+        }
+      }
+    },
+    {
+      "tag": "select",
+      "element": {
+        "attrs": {
+          "id": "my_select_field",
+          "class": "parameterSelect"
+        },
+        "children": [
+          "len",
+          "instanceof",
+          "substr"
+        ]
+      }
+    }
+  ]
+}
