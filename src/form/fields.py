@@ -62,7 +62,7 @@ class SelectField(BaseField):
         self['tag'] = "select"
 
     def build(self):
-        html = super().build()
+        html = super(SelectField, self).build()
         for option in self.children:
             html += '<option value="{val}">{val}</option>'.format(val=option)
         html += "</{}>".format(self['tag'])
