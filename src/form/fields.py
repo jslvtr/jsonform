@@ -52,13 +52,13 @@ class BaseField(object):
 
 class TextField(BaseField):
     def __init__(self, attrs={}, parent=None, children=[]):
-        super().__init__(attrs, parent, children)
+        super(TextField, self).__init__(attrs, parent, children)
         self.attrs['type'] = "text"
 
 
 class SelectField(BaseField):
     def __init__(self, attrs={}, parent=None, children=[]):
-        super().__init__(attrs, parent, children)
+        super(SelectField, self).__init__(attrs, parent, children)
         self['tag'] = "select"
 
     def build(self):

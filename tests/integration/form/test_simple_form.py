@@ -1,4 +1,5 @@
 import json
+import os
 from unittest import TestCase
 from src.form.builder import FormBuilder
 
@@ -7,7 +8,8 @@ __author__ = 'jslvtr'
 
 class TestSimpleForm(TestCase):
     def test_simple_form(self):
-        with open("simple_form.json") as f:
+        path = os.path.dirname(os.path.abspath(__file__))
+        with open(os.path.join(path, "simple_form.json")) as f:
             json_obj = json.load(f)
         form = FormBuilder(json_obj)
 
