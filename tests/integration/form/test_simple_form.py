@@ -21,6 +21,7 @@ class TestSimpleForm(TestCase):
         html = form.build()
 
         self.assertTrue('id="my_text_field"' in html)
+        self.assertTrue('type="text"' in html)
         self.assertTrue('id="my_select_field"' in html)
         self.assertTrue('id="form_test"' in html)
         self.assertTrue('style="display: block; background-color: #333333;"' in html)

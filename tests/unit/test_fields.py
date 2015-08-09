@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from src.form.fields import BaseField, SelectField, FieldFactory, TextField
+from src.form.fields import BaseField, SelectField, FieldFactory, InputField
 
 __author__ = 'jslvtr'
 
@@ -52,18 +52,19 @@ class TestFields(TestCase):
 
     def test_create_from_factory(self):
         json = {
-            "tag": "text",
+            "tag": "input",
             "element": {
                 "attrs": {
                     "id": "some_field",
                     "class": [
                         "class1",
                         "class2"
-                    ]
+                    ],
+                    "type": "text"
                 }
             }
         }
 
         element = FieldFactory.create(json)
         self.assertEqual(element.attrs['id'], json['element']['attrs']['id'])
-        self.assertIsInstance(element, TextField)
+        self.assertIsInstance(element, InputField)

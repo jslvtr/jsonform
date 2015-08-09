@@ -48,10 +48,11 @@ class TestFormBuilder(TestCase):
             },
             "children": [
                 {
-                    "tag": "text",
+                    "tag": "input",
                     "element": {
                         "attrs": {
-                            "id": "my_text_field"
+                            "id": "my_text_field",
+                            "type": "text"
                         },
                         "parent": "some_id"
                     }

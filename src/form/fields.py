@@ -9,8 +9,8 @@ class FieldFactory(object):
         if 'tag' not in json.keys():
             raise FieldFormatError("A field was created without a tag. This is certainly not valid!")
 
-        if json['tag'] == "text":
-            return TextField(**json['element'])
+        if json['tag'] == "input":
+            return InputField(**json['element'])
         elif json['tag'] == "select":
             return SelectField(**json['element'])
 
@@ -50,10 +50,9 @@ class BaseField(object):
         return html
 
 
-class TextField(BaseField):
+class InputField(BaseField):
     def __init__(self, attrs={}, parent=None, children=[]):
-        super(TextField, self).__init__(attrs, parent, children)
-        self.attrs['type'] = "text"
+        super(InputField, self).__init__(attrs, parent, children)
 
 
 class SelectField(BaseField):
@@ -67,7 +66,3 @@ class SelectField(BaseField):
             html += '<option value="{val}">{val}</option>'.format(val=option)
         html += "</{}>".format(self['tag'])
         return html
-
-
-class PasswordField(BaseField):
-    pass
