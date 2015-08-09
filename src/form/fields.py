@@ -41,11 +41,6 @@ class BaseField(object):
         else:
             self.attrs[key] = value
 
-
-class InputField(BaseField):
-    def __init__(self, attrs={}, parent=None, children=[]):
-        super(InputField, self).__init__(attrs, parent, children)
-
     def build(self):
         html = "<{}".format(self.tag)
         for index, key in enumerate(self.attrs.keys()):
@@ -53,6 +48,11 @@ class InputField(BaseField):
             html += ' {}="{}"'.format(key, " ".join(value) if isinstance(value, list) else value)
         html += ">"
         return html
+
+
+class InputField(BaseField):
+    def __init__(self, attrs={}, parent=None, children=[]):
+        super(InputField, self).__init__(attrs, parent, children)
 
 
 class SelectField(BaseField):
